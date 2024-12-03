@@ -37,12 +37,12 @@ email.send_keys("edvinas2003@gmail.com")
 time.sleep(3)
 
 password = browser.find_element(By.XPATH, "/html/body/div[2]/main/div[3]/div/form/fieldset[2]/div[2]/div/input")
-password.send_keys("edvinas2003!")
+password.send_keys("edvinas2003!@")
 
 time.sleep(3)
 
 confirm_password = browser.find_element(By.XPATH, "/html/body/div[2]/main/div[3]/div/form/fieldset[2]/div[3]/div/input")
-confirm_password.send_keys("edvinas2003!")
+confirm_password.send_keys("edvinas2003!@")
 
 time.sleep(3)
 
