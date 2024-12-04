@@ -13,7 +13,7 @@ def register_account():
         captcha.click()
         time.sleep(3)
     except:
-        pass  # If no captcha, proceed
+        pass  # Jei nera captchos, testi
 
     account = browser.find_element(By.XPATH, "/html/body/div[2]/header/div[1]/div/ul/li[3]/a")
     account.click()
@@ -37,7 +37,6 @@ def register_account():
             print("Error: Email address is required.")
 
 
-        print("Filling in the required fields...")
 
         name = browser.find_element(By.XPATH, "/html/body/div[2]/main/div[3]/div/form/fieldset[1]/div[1]/div/input")
         name.send_keys("Edvinas")
@@ -51,18 +50,11 @@ def register_account():
         password = browser.find_element(By.XPATH, "/html/body/div[2]/main/div[3]/div/form/fieldset[2]/div[2]/div/input")
         password.send_keys("edvinas2003!@#$")
 
-        confirm_password = browser.find_element(By.XPATH,
-                                                "/html/body/div[2]/main/div[3]/div/form/fieldset[2]/div[3]/div/input")
+        confirm_password = browser.find_element(By.XPATH, "/html/body/div[2]/main/div[3]/div/form/fieldset[2]/div[3]/div/input")
         confirm_password.send_keys("edvinas2003!@#$")
 
         submit_button.click()
         time.sleep(3)
-
-        try:
-            final_error = browser.find_element(By.XPATH, "//div[@class='messages']//li")
-            print("Error: Registration failed. Please check the details and try again.")
-        except:
-            print("Registration successful!")
 
     except Exception as e:
         print(f"Error checking required fields: {e}")
