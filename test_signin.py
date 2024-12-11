@@ -54,10 +54,10 @@ def test_sign_in_with_random_credentials(browser):
     browser.find_element(By.ID, "email").send_keys(email)
     browser.find_element(By.ID, "pass").send_keys(password)
     browser.find_element(By.ID, LOGIN_BUTTON).click()
-
+    time.sleep(2)
 
     error_message = WebDriverWait(browser, 10).until(
-        EC.presence_of_element_located((By.XPATH, SIGN_IN_ERROR_MESSAGE))
+        EC.presence_of_element_located((By.XPATH, "/html/body/div[2]/main/div[2]/div[2]/div/div"))
     ).text
 
 
@@ -65,6 +65,8 @@ def test_sign_in_with_empty_fields(browser):
     """Test signing in with empty fields."""
     browser.get(LOGIN_URL)
     browser.find_element(By.ID, LOGIN_BUTTON).click()
+    time.sleep(2)
+
     error_message = WebDriverWait(browser, 10).until(
         EC.presence_of_element_located((By.XPATH, SIGN_IN_ERROR_MESSAGE))
     ).text
