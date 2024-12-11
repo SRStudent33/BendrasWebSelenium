@@ -76,6 +76,7 @@ def test_leave_review_with_empty_fields(browser):
     """Test leaving a review with empty fields."""
     browser.get(PRODUCT_URL)
     browser.find_element(By.ID, REVIEW_BUTTON).click()
+    browser.find_element(By.XPATH, REVIEW_STAR_1).click()
     browser.find_element(By.XPATH, SUBMIT_REVIEW_BUTTON).click()
     error_message = WebDriverWait(browser, 10).until(
         EC.presence_of_element_located((By.XPATH, ERROR_MESSAGE))
