@@ -12,6 +12,7 @@ def test_add_to_cart():
     Select_Clothes_Image = browser.find_element(By.XPATH, "//div[contains(@class, 'products-grid')]/ol/li/div/a/span/span/img")
     Select_Clothes_Image.location_once_scrolled_into_view
     Select_Clothes_Image.click()
+    time.sleep(2)
     Select_Clothes_Size = browser.find_element(By.ID, "option-label-size-143-item-168")
     Select_Clothes_Size.click()
     Select_Clothes_Color = browser.find_element(By.ID, "option-label-color-93-item-57")
@@ -32,6 +33,7 @@ def test_delete_from_cart():
     Select_Clothes_Image = browser.find_element(By.XPATH,"//div[contains(@class, 'products-grid')]/ol/li/div/a/span/span/img")
     Select_Clothes_Image.location_once_scrolled_into_view
     Select_Clothes_Image.click()
+    time.sleep(2)
     Select_Clothes_Size = browser.find_element(By.ID, "option-label-size-143-item-168")
     Select_Clothes_Size.click()
     Select_Clothes_Color = browser.find_element(By.ID, "option-label-color-93-item-57")
@@ -53,6 +55,7 @@ def test_change_quantity():
     Select_Clothes_Image = browser.find_element(By.XPATH,"//div[contains(@class, 'products-grid')]/ol/li/div/a/span/span/img")
     Select_Clothes_Image.location_once_scrolled_into_view
     Select_Clothes_Image.click()
+    time.sleep(2)
     Select_Clothes_Size = browser.find_element(By.ID, "option-label-size-143-item-168")
     Select_Clothes_Size.click()
     Select_Clothes_Color = browser.find_element(By.ID, "option-label-color-93-item-57")
