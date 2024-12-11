@@ -5,14 +5,15 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium. webdriver.support.select import Select
 import time
+import pytest
 
 link="https://magento.softwaretestingboard.com/"
 
 browser = webdriver.Chrome()
 browser.get(link)
 
-captcha = browser.find_element(By.XPATH, "/html/body/div[3]/div[2]/div[2]/div[2]/div[2]/button[1]/p")
-captcha.click()
+#captcha = browser.find_element(By.XPATH, "/html/body/div[3]/div[2]/div[2]/div[2]/div[2]/button[1]/p")
+#captcha.click()
 
 time.sleep(3)
 
@@ -50,3 +51,12 @@ submit = browser.find_element(By.XPATH, "/html/body/div[2]/main/div[3]/div/form/
 submit.click()
 
 time.sleep(3)
+
+@pytest.fixture(autouse=True)
+def run_around_tests():
+    global browser
+    browser = webdriver.Chrome()
+    browser.get(link)
+    yield
+    browser.quit()
+
