@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
+import pytest
 
 
 def register_account():
@@ -63,3 +64,11 @@ def register_account():
     browser.quit()
 
 register_account()
+
+@pytest.fixture(autouse=True)
+def run_around_tests():
+    global browser
+    browser = webdriver.Chrome()
+    browser.get(link)
+    yield
+    browser.quit()
