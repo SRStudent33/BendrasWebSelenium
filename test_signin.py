@@ -11,7 +11,7 @@ import string
 LOGIN_URL = "https://magento.softwaretestingboard.com/customer/account/login/referer/aHR0cHM6Ly9tYWdlbnRvLnNvZnR3YXJldGVzdGluZ2JvYXJkLmNvbS9jdXN0b21lci9hY2NvdW50L2xvZ291dFN1Y2Nlc3Mv/"
 PRODUCT_URL = "https://magento.softwaretestingboard.com/ajax-full-zip-sweatshirt.html"
 LOGIN_BUTTON = "send2"
-SIGN_IN_ERROR_MESSAGE = "//*[@id='maincontent']/div[2]/div[2]/div/div"
+SIGN_IN_ERROR_MESSAGE = "/html/body/div[2]/main/div[2]/div[2]/div/div"
 ERROR_MESSAGE = "//*[@id='maincontent']/div[1]/div[2]/div/div[1]"
 REVIEW_BUTTON = "tab-label-reviews-title"
 SUBMIT_REVIEW_BUTTON = "//*[@id='review-form']/div/div/button"
@@ -54,6 +54,7 @@ def test_sign_in_with_random_credentials(browser):
     browser.find_element(By.ID, "email").send_keys(email)
     browser.find_element(By.ID, "pass").send_keys(password)
     browser.find_element(By.ID, LOGIN_BUTTON).click()
+
 
     error_message = WebDriverWait(browser, 10).until(
         EC.presence_of_element_located((By.XPATH, SIGN_IN_ERROR_MESSAGE))
