@@ -7,8 +7,8 @@ link = "https://magento.softwaretestingboard.com"
 global browser
 
 def test_add_to_cart():
-    Popup = browser.find_element(By.CLASS_NAME, "fc-button-label")
-    Popup.click()
+    #Popup = browser.find_element(By.CLASS_NAME, "fc-button-label")
+    #Popup.click()
     Select_Clothes_Image = browser.find_element(By.XPATH, "//div[contains(@class, 'products-grid')]/ol/li/div/a/span/span/img")
     Select_Clothes_Image.location_once_scrolled_into_view
     Select_Clothes_Image.click()
@@ -27,8 +27,8 @@ def test_add_to_cart():
 
 
 def test_delete_from_cart():
-    Popup = browser.find_element(By.CLASS_NAME, "fc-button-label")
-    Popup.click()
+    #Popup = browser.find_element(By.CLASS_NAME, "fc-button-label")
+    #Popup.click()
     Select_Clothes_Image = browser.find_element(By.XPATH,"//div[contains(@class, 'products-grid')]/ol/li/div/a/span/span/img")
     Select_Clothes_Image.location_once_scrolled_into_view
     Select_Clothes_Image.click()
@@ -48,8 +48,8 @@ def test_delete_from_cart():
     Delete_Clothes.click()
 
 def test_change_quantity():
-    Popup = browser.find_element(By.CLASS_NAME, "fc-button-label")
-    Popup.click()
+    #Popup = browser.find_element(By.CLASS_NAME, "fc-button-label")
+    #Popup.click()
     Select_Clothes_Image = browser.find_element(By.XPATH,"//div[contains(@class, 'products-grid')]/ol/li/div/a/span/span/img")
     Select_Clothes_Image.location_once_scrolled_into_view
     Select_Clothes_Image.click()
