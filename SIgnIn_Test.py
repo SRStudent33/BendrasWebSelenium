@@ -13,7 +13,6 @@ PRODUCT_URL = "https://magento.softwaretestingboard.com/ajax-full-zip-sweatshirt
 LOGIN_BUTTON = "send2"
 SIGN_IN_ERROR_MESSAGE = "//*[@id='maincontent']/div[2]/div[2]/div/div"
 ERROR_MESSAGE = "//*[@id='maincontent']/div[1]/div[2]/div/div[1]"
-PRIVACY_POPUP = "fc-button-label"
 REVIEW_BUTTON = "tab-label-reviews-title"
 SUBMIT_REVIEW_BUTTON = "//*[@id='review-form']/div/div/button"
 REVIEW_ERROR_MESSAGE = "//*[@id='maincontent']/div[1]/div[2]/div/div[1]"
@@ -40,7 +39,6 @@ def test_sign_in_with_correct_credentials(browser):
     password = "Fancy123"
 
     browser.get(LOGIN_URL)
-    browser.find_element(By.CLASS_NAME, PRIVACY_POPUP).click()
     browser.find_element(By.ID, "email").send_keys(email)
     browser.find_element(By.ID, "pass").send_keys(password)
     browser.find_element(By.ID, LOGIN_BUTTON).click()
@@ -53,7 +51,6 @@ def test_sign_in_with_random_credentials(browser):
     password = ''.join(random.choices(string.ascii_letters + string.digits, k=12))
 
     browser.get(LOGIN_URL)
-    browser.find_element(By.CLASS_NAME, PRIVACY_POPUP).click()
     browser.find_element(By.ID, "email").send_keys(email)
     browser.find_element(By.ID, "pass").send_keys(password)
     browser.find_element(By.ID, LOGIN_BUTTON).click()
@@ -66,7 +63,6 @@ def test_sign_in_with_random_credentials(browser):
 def test_sign_in_with_empty_fields(browser):
     """Test signing in with empty fields."""
     browser.get(LOGIN_URL)
-    browser.find_element(By.CLASS_NAME, PRIVACY_POPUP).click()
     browser.find_element(By.ID, LOGIN_BUTTON).click()
 
     error_message = WebDriverWait(browser, 10).until(
@@ -77,7 +73,6 @@ def test_sign_in_with_empty_fields(browser):
 def test_leave_review_with_empty_fields(browser):
     """Test leaving a review with empty fields."""
     browser.get(PRODUCT_URL)
-    browser.find_element(By.CLASS_NAME, PRIVACY_POPUP).click()
     browser.find_element(By.ID, REVIEW_BUTTON).click()
     browser.find_element(By.XPATH, SUBMIT_REVIEW_BUTTON).click()
     error_message = WebDriverWait(browser, 10).until(
@@ -87,7 +82,6 @@ def test_leave_review_with_empty_fields(browser):
 def test_leave_review_nickname_as_numbers(browser):
     """Test leaving a review with nickname as numbers."""
     browser.get(PRODUCT_URL)
-    browser.find_element(By.CLASS_NAME, PRIVACY_POPUP).click()
     browser.find_element(By.ID, REVIEW_BUTTON).click()
     time.sleep(2)
     browser.find_element(By.XPATH, REVIEW_STAR_1).click()
@@ -100,7 +94,6 @@ def test_leave_review_nickname_as_numbers(browser):
 def test_leave_review_no_stars(browser):
     """Test leaving a review with 0 stars"""
     browser.get(PRODUCT_URL)
-    browser.find_element(By.CLASS_NAME, PRIVACY_POPUP).click()
     browser.find_element(By.ID, REVIEW_BUTTON).click()
     time.sleep(1)
     browser.find_element(By.ID, REVIEW_NICKNAME_FIELD).send_keys("Hero")
